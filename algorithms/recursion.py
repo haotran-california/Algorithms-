@@ -43,12 +43,25 @@ a = int(3) / int(2)
 b = 3 // 2
 
 #number of paths from starting square to ending square in a matrix
-
 def numPaths(rows, cols):
 
     return 0
 
-
+#what was this again
 def numPartitions(n, m):
 
     return 0
+
+#return an array of fib numbers
+array = []
+def arrayFib(n):
+    if n == 0:
+        return 1
+    else:
+        result = arrayFib(n-1) + arrayFib(n-2)
+        return result
+
+    array.append(result)
+    return array
+
+print(arrayFib(10))

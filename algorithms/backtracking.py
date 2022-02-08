@@ -11,24 +11,24 @@ def permutations(str_arr):
     for i in str_arr:
         decision_space.append(i)
 
+    def helper(str_arr, subset, decision_space):
+        if len(subset) == len(str_arr): #base case
+            print(subset)
+        else:
+            #remove from decision space the elements in the subset
+            for i in subset:
+                for j in decision_space:
+                    if i == j:
+                        decision_space.remove(i)
+
+            n = len(decision_space)
+            for i in range(n): #number of inital branches
+                #add each element in the decision space into the next part of the subset
+                new_element = decision_space[i]
+                subset.append(new_element)
+                return helper(str_arr, subset, decision_space)
+                
     return helper(array, subset, decision_space)
-
-def helper(str_arr, subset, decision_space):
-    if len(subset) == len(str_arr): #base case
-        print(subset)
-    else:
-        #remove from decision space the elements in the subset
-        for i in subset:
-            for j in decision_space:
-                if i == j:
-                    decision_space.remove(i)
-
-        n = len(decision_space)
-        for i in range(n): #number of inital branches
-            #add each element in the decision space into the next part of the subset
-            new_element = decision_space[i]
-            subset.append(new_element)
-            return helper(str_arr, subset, decision_space)
 
 
 
@@ -59,6 +59,17 @@ def permutate_str(array, start, end):
     #count the number of possiblities from the back track
 
 
+#given an array of numbers find the sum of all possible permutations size t
+def possibleSums(array, t):
+    n = len(array)
+    r = []
 
-array = ["A", "B", "C"]
-permutate_str(array, 0, len(array) - 1)
+
+
+test = [1, 2, 3]
+t = 2
+
+# possibleSums(test, t)
+array = ["A", "B", "C", "D"]
+permutations(array)
+# permutate_str(array, 0, len(array) - 1)
